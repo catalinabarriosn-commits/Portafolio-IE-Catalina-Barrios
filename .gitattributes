@@ -1,2 +1,130 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio · IE 2026</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <!-- ===== TU IDEA: Encabezado Portafolio + IE 2026 ===== -->
+  <header class="header">
+    <h1 class="logo">Portafolio</h1>
+    <p class="anio">IE 2026</p>
+  </header>
+
+  <main>
+
+    <!-- ===== TU IDEA: Introducción ===== -->
+    <section class="introduccion">
+      <h2>Introducción</h2>
+      <p>Acá va tu texto de presentación: quién eres, qué estudias y de qué trata tu portafolio.</p>
+    </section>
+
+    <!-- ===== SECCIÓN EXTRA 1: Sobre mí ===== -->
+    <section class="sobre-mi">
+      <h2>Sobre mí</h2>
+      <div class="contenido-sobre-mi">
+        <img src="img/foto.jpg" alt="Fotografía personal" class="foto">
+        <div>
+          <p>Un párrafo corto sobre ti: tu nombre, qué estudias, qué te interesa del diseño y la programación.</p>
+          <p>Puedes contar por qué hiciste este portafolio y qué esperas mostrar con tus encargos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TU IDEA: Tareas (las 6 cajas del boceto) ===== -->
+    <section class="tareas">
+      <h2>Tareas</h2>
+      <div class="grilla-tareas">
+
+        <article class="tarjeta">
+          <span class="numero">1</span>
+          <h3>Encargo 1</h3>
+          <p>Descripción breve del sketch.</p>
+          <a href="https://editor.p5js.org/tu-usuario/sketches/..." target="_blank">Ver sketch</a>
+        </article>
+
+        <article class="tarjeta">
+          <span class="numero">2</span>
+          <h3>Encargo 2</h3>
+          <p>Descripción breve del sketch.</p>
+          <a href="https://editor.p5js.org/tu-usuario/sketches/..." target="_blank">Ver sketch</a>
+        </article>
+
+        <article class="tarjeta">
+          <span class="numero">3</span>
+          <h3>Encargo 3</h3>
+          <p>Descripción breve del sketch.</p>
+          <a href="https://editor.p5js.org/tu-usuario/sketches/..." target="_blank">Ver sketch</a>
+        </article>
+
+        <article class="tarjeta">
+          <span class="numero">4</span>
+          <h3>Encargo 4</h3>
+          <p>Descripción breve del sketch.</p>
+          <a href="https://editor.p5js.org/tu-usuario/sketches/..." target="_blank">Ver sketch</a>
+        </article>
+
+        <article class="tarjeta">
+          <span class="numero">5</span>
+          <h3>Encargo 5</h3>
+          <p>Descripción breve del sketch.</p>
+          <a href="https://editor.p5js.org/tu-usuario/sketches/..." target="_blank">Ver sketch</a>
+        </article>
+
+        <article class="tarjeta">
+          <span class="numero">6</span>
+          <h3>Encargo 6</h3>
+          <p>Descripción breve del sketch.</p>
+          <a href="https://editor.p5js.org/tu-usuario/sketches/..." target="_blank">Ver sketch</a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== SECCIÓN EXTRA 2: Habilidades ===== -->
+    <section class="habilidades">
+      <h2>Habilidades</h2>
+      <div class="lista-habilidades">
+        <div class="habilidad">
+          <span>p5.js / JavaScript</span>
+          <div class="barra"><div class="relleno" style="width: 70%;"></div></div>
+        </div>
+        <div class="habilidad">
+          <span>HTML y CSS</span>
+          <div class="barra"><div class="relleno" style="width: 80%;"></div></div>
+        </div>
+        <div class="habilidad">
+          <span>Diseño / Ilustración</span>
+          <div class="barra"><div class="relleno" style="width: 60%;"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECCIÓN EXTRA 3: Contacto ===== -->
+    <section class="contacto">
+      <h2>Contacto</h2>
+      <form action="#" method="post">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+
+        <label for="correo">Correo</label>
+        <input type="email" id="correo" name="correo" placeholder="tucorreo@ejemplo.com" required>
+
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje..." required></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 · Tu nombre · IE 2026</p>
+  </footer>
+
+</body>
+</html>
