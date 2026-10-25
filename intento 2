@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio · IE 2026</title>
+  <link href="https://cdn.jsdelivr.net/npm/@fontsource/cal-sans@5.3.0/index.min.css" rel="stylesheet">
+  <style>
+    /* ==========================================================
+       Portafolio · IE 2026 — negro dominante, Cal Sans, centrado
+       Versión sin animaciones: todo se ve siempre
+       ========================================================== */
+
+    :root {
+      --fondo: #0a0a0a;
+      --tarjeta: #161616;
+      --texto: #f0f0f0;
+      --texto-suave: #9a9a9a;
+      --gris-medio: #6f6f6f;
+      --linea: #2b2b2b;
+      --sombra: 0 14px 30px rgba(0, 0, 0, 0.55);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Cal Sans", "Helvetica Neue", Arial, sans-serif;
+      font-weight: 400;
+      background-color: var(--fondo);
+      color: var(--texto);
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    /* ---------- Encabezado (centrado, sin blur) ---------- */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 1.2rem 1rem;
+      background: #0a0a0a;
+      border-bottom: 1px solid var(--linea);
+    }
+
+    .logo {
+      font-weight: 400;
+      font-size: 1.6rem;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--texto);
+    }
+
+    .anio {
+      font-size: 0.95rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--texto-suave);
+    }
+
+    .nota {
+      display: block;
+      font-size: 0.65rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gris-medio);
+    }
+
+    .enlace-wiki {
+      display: inline-block;
+      color: var(--texto-suave);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--gris-medio);
+      padding-bottom: 1px;
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .enlace-wiki:hover {
+      color: var(--texto);
+      border-color: var(--texto);
+    }
+
+    /* ---------- Contenido ---------- */
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+
+    section { margin-bottom: 4.5rem; }
+
+    h2 {
+      font-weight: 400;
+      font-size: 1.7rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.6rem;
+    }
+
+    h2::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      width: 48px;
+      height: 2px;
+      background: var(--texto);
+    }
+
+    /* ---------- Introducción ---------- */
+    .introduccion p {
+      max-width: 680px;
+      margin: 0 auto;
+      color: var(--texto-suave);
+      font-size: 1.05rem;
+    }
+
+    /* ---------- Tareas: llave + cajas grandes cuadradas ---------- */
+    .contenedor-tareas {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 1.4rem;
+    }
+
+    .llave {
+      display: flex;
+      align-items: stretch;
+      gap: 0.6rem;
+    }
+
+    .llave-texto {
+      writing-mode: vertical-rl;
+      font-weight: 400;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--texto);
+      font-size: 0.9rem;
+      padding: 0.5rem 0;
+    }
+
+    .llave-grafica {
+      width: 24px;
+      border-left: 3px solid var(--texto);
+      border-top: 3px solid var(--texto);
+      border-bottom: 3px solid var(--texto);
+      border-top-left-radius: 40px;
+      border-bottom-left-radius: 40px;
+    }
+
+    .lista-tareas {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.6rem;
+      width: 100%;
+      max-width: 860px;
+    }
+
+    .tarjeta {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      background: var(--tarjeta);
+      border: 1px solid var(--linea);
+      border-radius: 6px;
+      box-shadow: var(--sombra);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 2.2rem 2rem;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-4px);
+      border-color: var(--gris-medio);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.7);
+    }
+
+    .numero {
+      position: absolute;
+      top: 1.2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--texto);
+      color: #0a0a0a;
+      font-weight: 400;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 1.05rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .tarjeta h3 {
+      margin-top: 1.4rem;
+      font-weight: 400;
+      font-size: 1.25rem;
+      letter-spacing: 1px;
+      color: var(--texto);
+    }
+
+    .tarjeta p {
+      color: var(--texto-suave);
+      font-size: 0.95rem;
+    }
+
+    .tarjeta a {
+      display: inline-block;
+      margin-top: 0.6rem;
+      color: var(--texto);
+      text-decoration: none;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.8rem;
+      border-bottom: 1px solid var(--gris-medio);
+      padding-bottom: 2px;
+      transition: border-color 0.3s ease, letter-spacing 0.3s ease;
+    }
+
+    .tarjeta a:hover {
+      border-color: var(--texto);
+      letter-spacing: 3px;
+    }
+
+    /* ---------- Footer ---------- */
+    .footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      border-top: 1px solid var(--linea);
+      color: var(--texto-suave);
+      font-size: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ---------- Responsividad ---------- */
+    @media (max-width: 768px) {
+      .header { padding: 1rem; }
+      .llave-grafica { width: 16px; }
+      .lista-tareas { grid-template-columns: 1fr; }
+      h2 { font-size: 1.4rem; }
+    }
+
+    @media (max-width: 480px) {
+      main { padding: 1.5rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== TU IDEA: Portafolio + IE 2026 ===== -->
+  <header class="header">
+    <h1 class="logo">Portafolio</h1>
+    <p class="anio">IE 2026</p>
+    <a class="enlace-wiki" href="https://wiki.ead.pucv.cl/Usuario:Tu-Nombre" target="_blank">Casiopea ↗</a>
+    <span class="nota">0798 048</span>
+  </header>
+
+  <main>
+
+    <!-- ===== TU IDEA: Introducción ===== -->
+    <section class="introduccion">
+      <h2>Introducción</h2>
+      <p>Acá va tu texto de presentación: quién eres, qué estudias y de qué trata tu portafolio.</p>
+    </section>
+
+    <!-- ===== TU IDEA: Tareas (llave + 6 cajas grandes cuadradas) ===== -->
+    <section class="tareas">
+      <div class="contenedor-tareas">
+        <div class="llave">
+          <span class="llave-texto">tareas</span>
+          <span class="llave-grafica"></span>
+        </div>
+        <div class="lista-tareas">
+
+          <article class="tarjeta">
+            <span class="numero">1</span>
+            <h3>Encargo 1</h3>
+            <p>Descripción breve del sketch.</p>
+            <a href="https://editor.p5js.org/tu-usuario/sketches/..." target="_blank">Ver sketch</a>
+          </article>
+
+          <article class="tarjeta">
+            <span class="numero">2</span>
+            <h3>Encargo 2</h3>
+            <p>Descripción breve del sketch.</p>
+            <a href="https://editor.p5js.org/tu-usuario/sketches/..." target="_blank">Ver sketch</a>
+          </article>
+
+          <article class="tarjeta">
+            <span class="numero">3</span>
+            <h3>Encargo 3</h3>
+            <p>Descripción breve del sketch.</p>
+            <a href="https://editor.p5js.org/tu-usuario/sketches/..." target="_blank">Ver sketch</a>
+          </article>
+
+          <article class="tarjeta">
+            <span class="numero">4</span>
+            <h3>Encargo 4</h3>
+            <p>Descripción breve del sketch.</p>
+            <a href="https://editor.p5js.org/tu-usuario/sketches/..." target="_blank">Ver sketch</a>
+          </article>
+
+          <article class="tarjeta">
+            <span class="numero">5</span>
+            <h3>Encargo 5</h3>
+            <p>Descripción breve del sketch.</p>
+            <a href="https://editor.p5js.org/tu-usuario/sketches/..." target="_blank">Ver sketch</a>
+          </article>
+
+          <article class="tarjeta">
+            <span class="numero">6</span>
+            <h3>Encargo 6</h3>
+            <p>Descripción breve del sketch.</p>
+            <a href="https://editor.p5js.org/tu-usuario/sketches/..." target="_blank">Ver sketch</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 · Tu nombre · IE 2026</p>
+    <a class="enlace-wiki" href="https://wiki.ead.pucv.cl/Usuario:Tu-Nombre" target="_blank">Casiopea ↗</a>
+    <span class="nota">0798 048</span>
+  </footer>
+
+</body>
+</html>
