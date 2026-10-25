@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio · IE 2026</title>
+  <link href="https://cdn.jsdelivr.net/npm/@fontsource/cal-sans@5.3.0/index.min.css" rel="stylesheet">
+  <style>
+    /* ==========================================================
+       Portafolio · IE 2026 — negro dominante, Cal Sans, centrado
+       Tareas apiladas + flip al hacer clic + 3 secciones propias
+       ========================================================== */
+
+    :root {
+      --fondo: #0a0a0a;
+      --tarjeta: #161616;
+      --tarjeta-reverso: #1d1d1d;
+      --texto: #f0f0f0;
+      --texto-suave: #9a9a9a;
+      --gris-medio: #6f6f6f;
+      --linea: #2b2b2b;
+      --sombra: 0 14px 30px rgba(0, 0, 0, 0.55);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Cal Sans", "Helvetica Neue", Arial, sans-serif;
+      font-weight: 400;
+      background-color: var(--fondo);
+      color: var(--texto);
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    /* ---------- Encabezado (centrado) ---------- */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 1.2rem 1rem;
+      background: #0a0a0a;
+      border-bottom: 1px solid var(--linea);
+    }
+
+    .logo {
+      font-weight: 400;
+      font-size: 1.6rem;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--texto);
+    }
+
+    .anio {
+      font-size: 0.95rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--texto-suave);
+    }
+
+    .nota {
+      display: block;
+      font-size: 0.65rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gris-medio);
+    }
+
+    .enlace-wiki {
+      display: inline-block;
+      color: var(--texto-suave);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--gris-medio);
+      padding-bottom: 1px;
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .enlace-wiki:hover {
+      color: var(--texto);
+      border-color: var(--texto);
+    }
+
+    /* ---------- Contenido ---------- */
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+
+    section { margin-bottom: 4.5rem; }
+
+    h2 {
+      font-weight: 400;
+      font-size: 1.7rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.6rem;
+    }
+
+    h2::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      width: 48px;
+      height: 2px;
+      background: var(--texto);
+    }
+
+    /* ---------- Introducción ---------- */
+    .introduccion p {
+      max-width: 680px;
+      margin: 0 auto;
+      color: var(--texto-suave);
+      font-size: 1.05rem;
+    }
+
+    /* ---------- Sobre mí (solo texto) ---------- */
+    .sobre-mi p {
+      max-width: 560px;
+      margin: 0 auto 1rem;
+      color: var(--texto-suave);
+    }
+
+    /* ---------- Intereses (sección propia) ---------- */
+    .lista-intereses {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.6rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .interes {
+      background: var(--tarjeta);
+      border: 1px solid var(--linea);
+      border-radius: 6px;
+      padding: 1.6rem 1.8rem;
+      box-shadow: var(--sombra);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .interes:hover {
+      transform: translateY(-4px);
+      border-color: var(--gris-medio);
+    }
+
+    .interes h3 {
+      font-weight: 400;
+      font-size: 1.15rem;
+      letter-spacing: 1px;
+      color: var(--texto);
+      margin-bottom: 0.4rem;
+    }
+
+    .interes p {
+      color: var(--texto-suave);
+      font-size: 0.92rem;
+    }
+
+    /* ---------- Tareas: llave + cajas apiladas que se voltean ---------- */
+    .contenedor-tareas {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 1.4rem;
+    }
+
+    .llave {
+      display: flex;
+      align-items: stretch;
+      gap: 0.6rem;
+    }
+
+    .llave-texto {
+      writing-mode: vertical-rl;
+      font-weight: 400;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--texto);
+      font-size: 0.9rem;
+      padding: 0.5rem 0;
+    }
+
+    .llave-grafica {
+      width: 24px;
+      border-left: 3px solid var(--texto);
+      border-top: 3px solid var(--texto);
+      border-bottom: 3px solid var(--texto);
+      border-top-left-radius: 40px;
+      border-bottom-left-radius: 40px;
+    }
+
+    .pista {
+      color: var(--gris-medio);
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Una sola columna: tarjetas apiladas, centradas */
+    .lista-tareas {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.6rem;
+      width: 100%;
+      max-width: 560px;
+    }
+
+    /* Tarjeta externa: da la perspectiva 3D */
+    .tarjeta {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      perspective: 1000px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-4px);
+    }
+
+    /* Contenedor que gira */
+    .tarjeta-interior {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.7s ease;
+    }
+
+    .tarjeta.volteada .tarjeta-interior {
+      transform: rotateY(180deg);
+    }
+
+    /* Cada cara de la tarjeta */
+    .cara {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 2.2rem 2rem;
+      background: var(--tarjeta);
+      border: 1px solid var(--linea);
+      border-radius: 6px;
+      box-shadow: var(--sombra);
+      transition: border-color 0.3s ease;
+    }
+
+    .cara:hover {
+      border-color: var(--gris-medio);
+    }
+
+    /* Cara trasera (girada 180°) */
+    .cara.reverso {
+      transform: rotateY(180deg);
+      background: var(--tarjeta-reverso);
+      border-color: var(--gris-medio);
+    }
+
+    .numero {
+      position: absolute;
+      top: 1.2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--texto);
+      color: #0a0a0a;
+      font-weight: 400;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 1.05rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .cara h3 {
+      margin-top: 1.4rem;
+      font-weight: 400;
+      font-size: 1.25rem;
+      letter-spacing: 1px;
+      color: var(--texto);
+    }
+
+    .cara a {
+      display: inline-block;
+      margin-top: 0.6rem;
+      color: var(--texto);
+      text-decoration: none;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.8rem;
+      border-bottom: 1px solid var(--gris-medio);
+      padding-bottom: 2px;
+      transition: border-color 0.3s ease, letter-spacing 0.3s ease;
+    }
+
+    .cara a:hover {
+      border-color: var(--texto);
+      letter-spacing: 3px;
+    }
+
+    .volver {
+      margin-top: 0.8rem;
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gris-medio);
+    }
+
+    /* ---------- Bitácora ---------- */
+    .lista-bitacora {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.6rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .entrada {
+      background: var(--tarjeta);
+      border: 1px solid var(--linea);
+      border-radius: 6px;
+      padding: 1.6rem 1.8rem;
+      box-shadow: var(--sombra);
+      text-align: left;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .entrada:hover {
+      transform: translateY(-4px);
+      border-color: var(--gris-medio);
+    }
+
+    .entrada h3 {
+      font-weight: 400;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      color: var(--texto);
+      margin-bottom: 0.4rem;
+    }
+
+    .entrada p {
+      color: var(--texto-suave);
+      font-size: 0.92rem;
+    }
+
+    /* ---------- Footer ---------- */
+    .footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      border-top: 1px solid var(--linea);
+      color: var(--texto-suave);
+      font-size: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ---------- Responsividad ---------- */
+    @media (max-width: 768px) {
+      .header { padding: 1rem; }
+      .llave-grafica { width: 16px; }
+      .lista-intereses { grid-template-columns: 1fr; }
+      .lista-bitacora { grid-template-columns: 1fr; }
+      h2 { font-size: 1.4rem; }
+    }
+
+    @media (max-width: 480px) {
+      main { padding: 1.5rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== TU IDEA: Portafolio + IE 2026 ===== -->
+  <header class="header">
+    <h1 class="logo">Portafolio</h1>
+    <p class="anio">IE 2026</p>
+    <a class="enlace-wiki" href="https://wiki.ead.pucv.cl/Imagen_Escrita_2026" target="_blank">Casiopea ↗</a>
+    <span class="nota">0798 048</span>
+  </header>
+
+  <main>
+
+    <!-- ===== TU IDEA: Introducción ===== -->
+    <section class="introduccion">
+      <h2>Introducción</h2>
+      <p>Bienvenida/o a mi portafolio del curso Imagen Escrita 2026. Acá documento mis encargos semanales en p5.js — desde la reinterpretación de portadas de discos hasta prototipos de arte generativo — junto con el proceso y las decisiones detrás de cada trabajo.</p>
+    </section>
+
+    <!-- ===== SECCIÓN PROPIA 1: Sobre mí ===== -->
+    <section class="sobre-mi">
+      <h2>Sobre mí</h2>
+      <p>Soy Catalina Barrios Núñez, estudiante de Diseño de la e[ad] PUCV, originaria de Viña del Mar.</p>
+      <p>Este portafolio reúne mis exploraciones del curso Imagen Escrita 2026, donde el código se trabaja como material de diseño y escritura visual.</p>
+    </section>
+
+    <!-- ===== SECCIÓN PROPIA 2: Intereses ===== -->
+    <section class="intereses">
+      <h2>Intereses</h2>
+      <div class="lista-intereses">
+
+        <div class="interes">
+          <h3>Gráfica generativa</h3>
+          <p>Estudio de sistemas, repetición y azar controlado como metodología de creación de imágenes; los sketches de ondas y fractales derivan de esta línea de trabajo.</p>
+        </div>
+
+        <div class="interes">
+          <h3>Tipografía</h3>
+          <p>Interés por la letra como forma: contornos, espaciado y su incidencia en el tono del diseño; exploración de su posible generación mediante sistemas.</p>
+        </div>
+
+        <div class="interes">
+          <h3>Luz y sombra</h3>
+          <p>Exploración del contraste y el claroscuro; el negro como color dominante de las composiciones y el acento cromático como elemento de tensión.</p>
+        </div>
+
+        <div class="interes">
+          <h3>Ilustración</h3>
+          <p>El dibujo como fundamento del proceso: bocetos, texturas y observación de lo cotidiano como punto de partida de las ideas.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== TU IDEA: Tareas apiladas (llave + cajas que se voltean) ===== -->
+    <section class="tareas">
+      <p class="pista">Haz clic en una tarjeta para voltearla</p>
+      <div class="contenedor-tareas">
+        <div class="llave">
+          <span class="llave-texto">tareas</span>
+          <span class="llave-grafica"></span>
+        </div>
+        <div class="lista-tareas">
+
+          <article class="tarjeta" tabindex="0">
+            <div class="tarjeta-interior">
+              <div class="cara frente">
+                <span class="numero">1</span>
+                <h3>Encargo 1 · Amor Amarillo</h3>
+                <a href="https://editor.p5js.org/cata27/full/7ZQn67624" target="_blank">Ver sketch</a>
+              </div>
+              <div class="cara reverso">
+                <h3>Encargo 1 · Amor Amarillo</h3>
+                <a href="https://editor.p5js.org/cata27/full/7ZQn67624" target="_blank">Ver sketch</a>
+                <span class="volver">↺ clic para volver</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="tarjeta" tabindex="0">
+            <div class="tarjeta-interior">
+              <div class="cara frente">
+                <span class="numero">3</span>
+                <h3>Encargo 3</h3>
+                <a href="https://editor.p5js.org/cata27/full/PcuCYjFif" target="_blank">Ver sketch</a>
+              </div>
+              <div class="cara reverso">
+                <h3>Encargo 3</h3>
+                <a href="https://editor.p5js.org/cata27/full/PcuCYjFif" target="_blank">Ver sketch</a>
+                <span class="volver">↺ clic para volver</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="tarjeta" tabindex="0">
+            <div class="tarjeta-interior">
+              <div class="cara frente">
+                <span class="numero">4</span>
+                <h3>Encargo 4</h3>
+                <a href="https://editor.p5js.org/cata27/full/KdNMrC5E8" target="_blank">Ver sketch</a>
+              </div>
+              <div class="cara reverso">
+                <h3>Encargo 4</h3>
+                <a href="https://editor.p5js.org/cata27/full/KdNMrC5E8" target="_blank">Ver sketch</a>
+                <span class="volver">↺ clic para volver</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="tarjeta" tabindex="0">
+            <div class="tarjeta-interior">
+              <div class="cara frente">
+                <span class="numero">5</span>
+                <h3>Encargo 5</h3>
+                <a href="https://editor.p5js.org/cata27/full/vQzd1Dube" target="_blank">Ver sketch</a>
+              </div>
+              <div class="cara reverso">
+                <h3>Encargo 5</h3>
+                <a href="https://editor.p5js.org/cata27/full/vQzd1Dube" target="_blank">Ver sketch</a>
+                <span class="volver">↺ clic para volver</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="tarjeta" tabindex="0">
+            <div class="tarjeta-interior">
+              <div class="cara frente">
+                <span class="numero">6</span>
+                <h3>Proyecto final</h3>
+                <a href="https://editor.p5js.org/JoseTomas/full/PkxqNUwMZ" target="_blank">Ver sketch</a>
+              </div>
+              <div class="cara reverso">
+                <h3>Proyecto final</h3>
+                <a href="https://editor.p5js.org/JoseTomas/full/PkxqNUwMZ" target="_blank">Ver sketch</a>
+                <span class="volver">↺ clic para volver</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECCIÓN PROPIA 3: Bitácora (sin semanas ni enlaces) ===== -->
+    <section class="bitacora">
+      <h2>Bitácora</h2>
+      <div class="lista-bitacora">
+
+        <article class="entrada">
+          <h3>Primer acercamiento</h3>
+          <p>El primer encargo consistió en la reducción de la portada del álbum Amor Amarillo a sus componentes geométricos esenciales: un plano de color claro, un plano amarillo y un círculo central naranjo. El objetivo fue determinar el grado mínimo de simplificación que conservara la identidad visual de la imagen original. En paralelo, se estudió la imagen de referencia del curso, caracterizada por texturas orgánicas, líneas que irradian desde un punto central y una estética de registro técnico.</p>
+        </article>
+
+        <article class="entrada">
+          <h3>Desarrollo del encargo</h3>
+          <p>El trabajo evolucionó de la composición estática hacia sistemas generativos autónomos: capas de emisores de ondas con rotación alternada, un fractal de ramificación con simetría octogonal sensible al cursor y un sistema de partículas con gravedad y fricción que produce manchas de carácter pictórico. La dificultad principal residió en la calibración de velocidades, desfases y proporciones para lograr un azar controlado dentro de parámetros definidos.</p>
+        </article>
+
+        <article class="entrada">
+          <h3>Resultado y reflexión</h3>
+          <p>El proceso permitió comprender el código como material de diseño: la repetición, la simetría y el movimiento operan como decisiones formales y no como efectos decorativos. La paleta oscura con un único acento cromático se consolidó como constante del trabajo, y el proyecto final, basado en figuras de Chladni con granos que configuran patrones, integró principios físicos al lienzo digital.</p>
+        </article>
+
+        <article class="entrada">
+          <h3>Proyección</h3>
+          <p>El interés es continuar aprendiendo los contenidos de la asignatura para utilizarlos en proyectos futuros.</p>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 · Catalina Barrios Núñez · IE 2026</p>
+    <a class="enlace-wiki" href="https://wiki.ead.pucv.cl/Imagen_Escrita_2026" target="_blank">Casiopea ↗</a>
+    <span class="nota">0798 048</span>
+  </footer>
+
+  <!-- ===== Interacción: voltear tarjetas (el contenido se ve sin JavaScript) ===== -->
+  <script>
+    document.querySelectorAll(".tarjeta").forEach(function (tarjeta) {
+      // Clic para voltear
+      tarjeta.addEventListener("click", function () {
+        tarjeta.classList.toggle("volteada");
+      });
+
+      // Teclado: Enter o espacio también voltea
+      tarjeta.addEventListener("keydown", function (evento) {
+        if (evento.key === "Enter" || evento.key === " ") {
+          evento.preventDefault();
+          tarjeta.classList.toggle("volteada");
+        }
+      });
+
+      // El enlace "Ver sketch" abre sin voltear la tarjeta
+      tarjeta.querySelectorAll("a").forEach(function (enlace) {
+        enlace.addEventListener("click", function (evento) {
+          evento.stopPropagation();
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
